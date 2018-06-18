@@ -171,7 +171,33 @@ td {
 }
 .error {
     background-color: #f13513d1;
+    color: white;
+    text-align: center;
 }
 .success {
     background-color: green;
+}
+
+.forbidden {
+    color: #f13513d1;
+}
+
+.label, .car-info {
+    display: inline-block;
+    margin-top: 2%;
+}
+
+.label {
+    font-weight: bold;
+    color: black;
+}
+
+.car-info {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.car-info img {
+    width: 70%;
+    margin: 0 auto;
 }

@@ -10,11 +10,14 @@ let carSchema = mongoose.Schema({
   brand: {
     type: String,
     required: showRequiredMessage('Brand'),
-    unique: true
   },
   model: {
     type: String,
     required: showRequiredMessage('Model')
+  },
+  imageSrc: {
+    type: String,
+    required: showRequiredMessage('Image Source'),
   },
   productionYear: {
     type: Number,
@@ -36,7 +39,19 @@ let carSchema = mongoose.Schema({
   },
   rentedBy: [
     {type: ObjectId, ref: 'User'}
-  ]
+  ],
+  color: {
+    type: String
+  },
+  isRented: {
+    type: Boolean,
+    default: false
+  },
+  price: {
+    type: Number,
+    required: showRequiredMessage('Price'),
+    validate: validations.price
+  }
 });
 
 let Car = mongoose.model('Car', carSchema);

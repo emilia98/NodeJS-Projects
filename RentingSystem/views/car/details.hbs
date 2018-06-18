@@ -1,0 +1,50 @@
+{{>head}}
+</body class="preload">
+{{>navigation}}
+<section id="main-container">
+    <h1>Login</h1>
+    <div>
+        <div class="car-info">
+            <img src="{{car.imageSrc}}" alt="car-to-rent"/>
+        </div>
+        <div>
+            <span class="label">Brand:</span> <p class="car-info">{{car.brand}}</p>
+        </div>
+        <div>
+            <span class="label">Model:</span>  <p class="car-info">{{car.model}}</p>
+        </div>
+        <div>
+            <span class="label">Release Year:</span> <p class="car-info">{{car.productionYear}}</p>
+        </div>
+        <div>
+            <span class="label">Seats:</span> <p class="car-info">{{car.seats}}</p>
+        </div>
+        <div>
+            <span class="label">Transmission:</span> <p class="car-info">{{car.transmission}}</p>
+        </div>
+        <div>
+            <span class="label">Color:</span> <p class="car-info">{{car.color}}</p>
+        </div>
+        <div>
+            <span class="label">Price:</span> <p class="car-info">{{car.price}}</p>
+        </div>
+    </div>
+
+    {{#if isAdmin}}
+      <a href="/car/edit/{{car._id}}">
+      <button>Edit Car</button>
+      </a>
+    {{/if}}
+</section>
+{{>footer}}
+<script>
+    document.onload = function () {
+        document
+            .querySelector('body')
+            .classList
+            .remove('preload');
+    }
+</script>
+</body>
+
+</html>

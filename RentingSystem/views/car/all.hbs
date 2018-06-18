@@ -1,0 +1,48 @@
+{{>head}}
+</body class="preload">
+{{>navigation}}
+<section id="main-container">
+    <h1>Cars</h1>
+    <div class="cars-container">
+        {{#each cars}}
+        <div class="car-container">
+            <section>
+                <a href="/car/details/{{_id}}">
+                    <img src="{{imageSrc}}" alt='car-image' />
+                </a>
+            </section>
+            <section class="info">
+                <strong>{{brand}}</strong>
+                <span class="rented">
+                    {{#if isRented}}
+                    
+                    {{else}}
+                    <a href="/car/rent/{{_id}}">
+                        <button>Rent</button>
+                    </a>
+                    {{/if}}
+                
+                    
+                </span>
+            </section>
+        </div>
+        {{else}}
+        <div>
+            <h2> No cars in the database</h2>
+        </div>
+        {{/each}}
+
+    </div>
+</section>
+{{>footer}}
+<script>
+    document.onload = function () {
+        document
+            .querySelector('body')
+            .classList
+            .remove('preload');
+    }
+</script>
+</body>
+
+</html>

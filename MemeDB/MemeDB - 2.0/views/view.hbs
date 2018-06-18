@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css" />
+</head>
+
+<body>
+    {{>header}} 
+    {{#if areMemes}}
+    <h1>Here are your memes</h1>
+    <div class="container">
+        {{#each memes}}
+        <div class="meme">
+            <a href="/details/meme/{{_id}}">
+                <img class="memePoster" src="{{imageUrl}}" />
+            </a>
+        </div>
+        {{else}} 
+        <div>
+            <h1>No memes to show</h1>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <h1>Here are your genres:</h1>
+    <div class="container genres">
+        {{#each genres}}
+        <div class="genre">
+            <a href="/details/genre/{{_id}}">
+                <h2>{{genreName}}</h1>
+            </a>
+        </div>
+        {{else}} 
+        <div>
+            <h1>No genres to show</h1>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+
+</body>
+
+</html>

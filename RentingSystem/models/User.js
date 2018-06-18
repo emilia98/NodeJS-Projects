@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validations = require('../app_modules/db-validations');
+const ObjectId = mongoose.Schema.ObjectId;
 
 function showRequiredMessage (msg) {
   return '{0} is required'.replace('{0}', msg);
@@ -11,7 +12,7 @@ let userSchema = mongoose.Schema({
     required: showRequiredMessage('Username'),
     unique: true
   },
-  hashedPass: {
+  hashedPassword: {
     type: String,
     required: showRequiredMessage('Password')
   },
@@ -25,4 +26,22 @@ let userSchema = mongoose.Schema({
     required: showRequiredMessage('Age'),
     validate: validations.age
   },
-})
+  email: {
+    type: String,
+    required: showRequiredMessage('Email'),
+    validate: validations.email
+  },
+  role: {
+    type: String,
+    default: 'User',
+    enum: {
+      values: ['Admin', 'User']
+    }
+  },
+  rentedCars: [
+    { type: ObjectId,
+      ref: 'Car'
+    }]
+});
+
+module.exports = mongoose.model('User', userSchema);

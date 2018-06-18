@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css" />
+</head>
+
+<body>
+    {{>header}}
+    <h1>Add New Movie</h1>
+    <div class="container">
+        <form action="/search" enctype=multipart/form-data>
+            <label for="memeTitle">Title</label>
+            <input type="text" id="memeTitle" name="memeTitle" placeholder="The title of the meme">
+
+            <select name='genreSelect' id="genreSelect">
+                <option></option>
+                {{#each genres}}
+                <option>{{genreName}}</option>
+                {{else}}
+                <option></option>
+                {{/each}}
+            </select>
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+
+    <div class="content">
+       {{#each memes}}
+        <div class="meme">
+            <a href="/details/meme/{{_id}}">
+                <img class="memePoster" src="{{imageUrl}}" />
+            </a>
+        </div>
+        {{else}} 
+        <div>
+            <h1>No memes to show</h1>
+        </div>
+        {{/each}}
+    </div>
+
+</body>
+
+</html>

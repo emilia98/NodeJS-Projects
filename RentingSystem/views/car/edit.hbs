@@ -1,0 +1,44 @@
+{{>head}}
+</body class="preload">
+{{>navigation}}
+<section id="main-container">
+    {{#each errors}}
+    <div class="error">
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+    </div>
+    {{else}} {{/each}}
+    <h1>Edit a car</h1>
+    <form method="POST" action="/car/edit/{{id}}">
+        <input name="brand" placeholder="enter make" value="{{brand}}"/>
+        <input name="model" placeholder="enter model"  value="{{model}}"/>
+        <input name="productionYear" type="number" placeholder="enter production year"  value="{{productionYear}}"/>
+        <input name="seats" type="number" placeholder="enter seats"  value="{{seats}}"/>
+        <input name="imageSrc" placeholder="enter image url"  value="{{imageSrc}}"/>
+        <input name="color" placeholder="enter color (optional)"  value="{{color}}"/>
+        <input name="price" type="number" placeholder="enter price"  value="{{price}}"/>
+        <select name="transmission">
+            <option name="transmission">
+                Manual
+            </option>
+            <option>
+                Auto
+            </option>
+        </select>
+        <input id="submit" type="submit" value="CREATE" />
+    </form>
+
+</section>
+{{>footer}}
+<script>
+    document.onload = function () {
+        document
+            .querySelector('body')
+            .classList
+            .remove('preload');
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+{{> header}}
+<ul id="greet">
+    {{#each names}}
+    <li><h1>Hello, {{name}}! I'm {{age}} years old.</h1></li>
+    {{else}}
+      <i>(empty)</i>
+    {{/each}}
+</ul>

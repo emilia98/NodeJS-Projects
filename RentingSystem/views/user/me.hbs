@@ -1,0 +1,47 @@
+{{>head}}
+</body class="preload">
+    {{>navigation}}
+    <section id="main-container">
+       <h1>Profile</h1>
+<section>
+    <h2>Username: {{username}}</h2>
+</section>
+<section>
+    <h2>Rent history</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Car</td>
+                <td>Price</td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each rentedCars}}
+                <tr>
+                    <td>{{brand}} {{model}}</td>
+                    <td>{{price}}</td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="2">
+                         <i>No rent history. 
+                             <a href="/car/all">Rent now</a>
+                         </i>    
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
+    </section>
+    {{>footer}}
+    <script>
+        document.onload = function() {
+            document
+                .querySelector('body')
+                .classList
+                .remove('preload');
+        }
+    </script>
+</body>
+</html>

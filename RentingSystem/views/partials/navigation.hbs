@@ -1,27 +1,40 @@
 <header>
     <nav>
-        <img id="logo" src="public/logo.png" alt="logo" />
+        <img id="logo" src="{{nested}}public/logo.png" alt="logo" />
         <ul id="main-nav">
             <li>
                 <a href="/">home</a>
             </li>
             <li>
-                <a href="/cars/all">all cars</a>
+                <a href="/car/all">all cars</a>
             </li>
-            <li>
-                <a href="/cars/create">add car</a>
+            {{#if isAdmin}}
+             <li>
+                <a href="/car/create">add car</a>
             </li>
-            <li>
-                <a href="/users/profile/me">profile</a>
+            {{/if}}
+            {{#if isUser}}
+             <li>
+                <a href="/user/profile/me">profile</a>
             </li>
+            {{/if}}
+           
         </ul>
         <ul id="user">
-            <li>
-                <a href="/users/register">register</a>
+            {{#if isAnonymous}}
+             <li>
+                <a href="/user/register">register</a>
             </li>
             <li>
-                <a href="/users/login">login</a>
+                <a href="/user/login">login</a>
             </li>
+            {{else}}
+             <li>
+                <a href="/user/logout">Logout</a>
+            </li>
+            {{/if}}
+            
+           
         </ul>
     </nav>
 </header>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css" />
+</head>
+
+<body>
+    {{>header}} {{#if isMeme}}
+    <div class='content'>
+        <div id="meme-title">
+            <span>Title: </span>
+            <h1>{{title}}</h1>
+        </div>
+
+        <div id="meme-img">
+            <img src="{{imageSrc}}" alt="" />
+        </div>
+        <div id="meme-info">
+            <div class='info'>
+                <span class='label'>Description:</span>
+                <p class='data'>{{description}}</p>
+            </div>
+
+            <div class='info'>
+                <span class='label'>Genre:</span>
+                <a href="/details/genre/{{genreId}}" class='data'>{{genre}}</a>
+            </div>
+            <a href="/download/{{imageSrc}}">
+                <button>Download Meme</button>
+            </a>
+            <a href="/delete/meme/{{memeId}}">
+                <button class="delete">Delete Meme</button>
+            </a>
+            <a href="/update/meme/{{memeId}}">
+                <button class="update">Update Meme</button>
+            </a>
+        </div>
+    </div>
+
+    {{else}}
+    <h1>Genre: {{genreName}}</h1>
+    <a href="/delete/genre/{{genreId}}">
+        <button class="delete">Delete Genre</button>
+    </a>
+    <div class="container">
+        {{#each memes}}
+        <div class="meme">
+            <a href="/details/meme/{{_id}}">
+                <img class="memePoster" src="{{imageUrl}}" />
+            </a>
+            <p class="title">Title:</p>
+            <h2 class="title">{{title}}</h2>
+        </div>
+        {{else}}
+        <div class="content no-content">
+            <h2>No memes to show</h2>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+
+</body>
+
+</html>
