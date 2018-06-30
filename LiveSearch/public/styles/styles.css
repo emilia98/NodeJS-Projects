@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow:hidden;
+}
+
+form {
+    background-color: #a9becf;
+    width: 50%;
+    margin: 5% auto;
+    padding: 2%;
+    box-sizing: content-box;
+    height: 250px;
+}
+
+.autocomplete {
+    width: 100%;
+    height: 100%;
+}
+
+input {
+    padding: 2%;
+    width: 100%;
+    font-size: 1.2em; 
+    box-sizing: content-box;
+    border: 1px solid gray;
+    margin-bottom: 1%;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    height: 70%;
+    border: 1px solid gray;
+}
+
+#suggestions {
+   font-size: 1.2em; 
+   padding: 0;
+   overflow: auto;
+   height: 100%;
+   width: 100%;
+   background-color: white;
+}
+
+#suggestions div {
+    padding: 1%;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #f4f4f4;
+}
+
+#empty-suggests {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.highlight {
+    background-color: #a9ebed;
+}
